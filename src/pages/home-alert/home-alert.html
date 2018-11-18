@@ -1,0 +1,46 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Selecciona tu alerta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+    <ion-card *ngFor="let item of alertList">
+
+        <ion-item>
+          <ion-avatar item-start>
+              <img [src]="item.image">
+          </ion-avatar>
+          <p>{{item.date | date: 'dd/MM/yyyy'}}</p>
+        </ion-item>
+        <ion-card-content>
+          <p *ngIf="item.status==1">{{ item.description }}</p>
+          <p *ngIf="item.status==0">
+              <ion-textarea placeholder="Ingrese una descripcion del alerta"></ion-textarea>
+          </p>
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col *ngIf="item.status==0">
+            <button ion-button block full color="secondary">
+              <ion-icon item-start name="md-checkbox-outline"></ion-icon> Aceptar
+            </button>
+          </ion-col>
+
+          <ion-col *ngIf="item.status==1">
+              <button ion-button block full color="danger">
+                  <ion-icon item-start name="md-trash"></ion-icon> Borrar
+                </button>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+
+
+</ion-content>

@@ -1,0 +1,14 @@
+<ion-content padding>
+
+
+  <ion-content class="card-background-page">
+
+    <ion-card *ngFor="let item of alertList">
+      <img [src]="item.image">
+      <div class="card-title">{{ item.title }}</div>
+      <div class="card-subtitle">{{ item.description }}</div>
+    </ion-card>
+
+  </ion-content>
+
+</ion-content>
